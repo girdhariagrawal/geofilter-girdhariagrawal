@@ -1,0 +1,26 @@
+{
+  "name": "geofilter-girdhariagrawal",
+  "version": "1.0.2",
+  "description": "Filter the provided records based on distance between coordinates",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "npm run lint && babel ./src -d ./lib",
+    "lint": "eslint ./src",
+    "test": "nyc mocha --require babel-core/register"
+  },
+  "author": "Girdhari Agrawal",
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0"
+  }
+}
