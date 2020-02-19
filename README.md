@@ -1,6 +1,3 @@
-# geofilter-girdhariagrawal
-#[Latest Version of Library: 1.0.2]
-
 ### Introduction
 Filters the record on the basis of latitude and longitude coordinates.
 - __Functions provided__

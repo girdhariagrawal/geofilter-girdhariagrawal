@@ -1,6 +1,6 @@
 {
   "name": "geofilter-girdhariagrawal",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Filter the provided records based on distance between coordinates",
   "main": "lib/index.js",
   "scripts": {
@@ -13,6 +13,10 @@
   "license": "ISC",
   "directories": {
     "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/girdhariagrawal/geofilter-girdhariagrawal.git"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

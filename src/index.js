@@ -1,4 +1,4 @@
-import util from './util';
+import degreeToRadian from './util';
 import {
   COORDINATE_UNITS, DISTANCE_UNITS, EARTH_RADIUS, DEFAULT_KEY_NAME,
 } from './const';
@@ -18,10 +18,10 @@ const distanceBetweenPoints = (fromLat, fromLong, toLat, toLong, coordinateUnit,
   }
   // Convert to radian only if provided coordinates are in degree
   if (coordinateUnit === COORDINATE_UNITS.degree) {
-    fromLat = util.degreeToRadian(fromLat);
-    fromLong = util.degreeToRadian(fromLong);
-    toLat = util.degreeToRadian(toLat);
-    toLong = util.degreeToRadian(toLong);
+    fromLat = degreeToRadian(fromLat);
+    fromLong = degreeToRadian(fromLong);
+    toLat = degreeToRadian(toLat);
+    toLong = degreeToRadian(toLong);
   }
   // Calculation for haversine formula
   const angleLat = toLat - fromLat;
@@ -53,15 +53,21 @@ const getDataWithInRange = (records, center, range, config) => {
     const coordinateUnit = (config && config.coordinateUnit) || COORDINATE_UNITS.degree;
     const distanceUnit = (config && config.distanceUnit) || DISTANCE_UNITS.kms;
 
-    return records.filter((record) => {
-      const distance = distanceBetweenPoints(center[latKeyName],
-        center[longKeyName],
-        record[latKeyName],
-        record[longKeyName],
-        coordinateUnit,
-        distanceUnit);
-      return distance < range;
-    });
+    if (center && center[latKeyName] && center[longKeyName]) {
+      return records.filter((record) => {
+        if (record[latKeyName] && record[longKeyName]) {
+          const distance = distanceBetweenPoints(center[latKeyName],
+            center[longKeyName],
+            record[latKeyName],
+            record[longKeyName],
+            coordinateUnit,
+            distanceUnit);
+          return distance < range;
+        }
+        return false;
+      });
+    }
+    return [];
   }
   return [];
 };

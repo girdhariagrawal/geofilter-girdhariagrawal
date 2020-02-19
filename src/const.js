@@ -15,6 +15,6 @@ const EARTH_RADIUS = {
   miles: 3956,
 };
 
-module.exports = {
+export {
   COORDINATE_UNITS, DISTANCE_UNITS, EARTH_RADIUS, DEFAULT_KEY_NAME,
 };

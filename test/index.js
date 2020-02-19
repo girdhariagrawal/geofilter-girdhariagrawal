@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { getDataWithInRange, distanceBetweenPoints } from '../src/index';
-import { degreeToRadian, radianToDegree } from '../src/util';
+import degreeToRadian from '../src/util';
 
 const records = [
   {
@@ -103,9 +103,6 @@ const records = [
 describe('Testing Utility', () => {
   it('degreeToRadian', () => {
     assert.equal(degreeToRadian(57), 0.9948376736367679);
-  });
-  it('radianToDegree', () => {
-    assert.equal(radianToDegree(0.76), 43.54479242994257);
   });
 });
 
