@@ -1,6 +1,6 @@
 {
   "name": "geofilter-girdhariagrawal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Filter the provided records based on distance between coordinates",
   "main": "lib/index.js",
   "scripts": {
